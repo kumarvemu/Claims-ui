@@ -15,7 +15,7 @@ const ClaimDetails = () => {
     const [message, setMessage] = useState("");
     const [saving, setSaving] = useState(false);
 
-    //Create the option tags for status
+   
     const claimStatuses = useSelector(state => state.claimStatuses);
 
     const claimStatusOptions = claimStatuses.map(claimStatus =>
@@ -24,7 +24,7 @@ const ClaimDetails = () => {
 
     const insuranceTypes = useSelector(state => state.insuranceTypes);
 
-    //Empty Claim
+    //Empty Claim values
     const emptyClaim = {
         id: 0, policyNumber: "", status: { id: 0, detail: "", open: true }, insuranceType: insuranceTypes.filter(it => it.detail === "Property"), createdDate: "",
         claimStartedDate: "", customerFirstName: "", customerSurname: "", estimatedClaimValue: "", claimReason: "",
@@ -49,7 +49,7 @@ const ClaimDetails = () => {
     }
     const [newClaim, dispatch] = useReducer(newClaimReducer, claimInStore);
 
-    useEffect(() => {
+    useEffect(() => {   
         if (location.pathname !== "/new") {
             getClaimById(params.claimId)
                 .then(response => {
@@ -72,6 +72,7 @@ const ClaimDetails = () => {
         }
 
     }, [location.pathname]);
+
 
     const { id, policyNumber, status, insuranceType, createdDate, claimStartedDate, customerFirstName, customerSurname, estimatedClaimValue, claimReason,
         incidentDescription, affectedAddress, relatedIncidentDate, anyFurtherDetails, amountPaid, make, model, modelYear, animalType, animalBreed } = newClaim;
@@ -132,6 +133,7 @@ const ClaimDetails = () => {
                     setSaving(false);
                 });
         }
+
         //Update Claim
         else {
             //Need to close all open tasks before changing to the two statuses - "Accepted - Awaiting Payment" and "Accepted & Paid"

@@ -5,10 +5,8 @@ import { useState } from 'react';
 import SiteHome from './components/Site/SiteHome';
 import ViewClaims from './components/Claim/ViewClaims';
 import ClaimSearch from './components/Claim/ClaimSearch';
-import UserProfile from './components/UserProfile';
 import SiteFooter from './components/Site/SiteFooter';
 import ClaimDetails from './components/Claim/ClaimDetails';
-import Search from './components/Claim/Search';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import PageNotFound from './PageNotFound';
@@ -30,10 +28,7 @@ function App() {
                   <Route path="view/:claimId" element={<ClaimDetails />} />
                   <Route path="list" element={<ViewClaims/>} />
                   <Route path="Search" element={<ClaimSearch searchType={searchType} searchText={searchText}  />} />
-                  <Route path="siva" element={<Search/>} />
                   <Route path="*" element={<PageNotFound />} />
-
-        
                 </Routes>
                 <SiteFooter year={new Date().getFullYear()}
                  />               
