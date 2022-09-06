@@ -87,7 +87,7 @@ const SiteHeader = (props) => {
                 <div className="container">
                     <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center justify-content-center justify-content-lg-start">
                           <div className="align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none font-weight-bold"> 
-                            <img src={allstateLogo} alt="Allstate" /> &nbsp; <b>Small Claims Application</b> 
+                            <img src={allstateLogo} alt="Allstate" /> &nbsp; <b>Quick Claims Application</b> 
                         </div>
                         </div>
                 </div>
