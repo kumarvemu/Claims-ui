@@ -1,7 +1,7 @@
-# quick-small-claims-ui
-Quick Small Claims UI React application 
+# small-claims-ui
+ Small Claims UI React application 
 
-Used as the front end for the Quick Small Claims Java Spring Boot application as part of Full Stack Development training course Summer 2022
+Used as the front end for the  Small Claims Java Spring Boot application as part of Full Stack Development training course Summer 2022
 
 # Read Me to be completed!!
 

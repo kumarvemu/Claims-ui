@@ -1,28 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from "react-router";
 import {getClaimsByOpenStatus}  from  "../../Data/DataFunctions";
 import {Fragment, useEffect,useState } from "react";
 import ClaimRow from "./ClaimRow";
-import { useSearchParams } from "react-router-dom";
 
 
 const ClaimSearch = (props) => {
 
 
     const dispatch = useDispatch();
-
-    const navigate = useNavigate();
-
     const [searchTerm, setSearchTerm] = useState("");
     const [valid, setValid] = useState(false);
     const [touched, setTouched] = useState(false);
     const [typeOfStatus, setTypeOfStatus] = useState(true);
-    
 
-    // const searchTerm = useSelector(state => state.searchTerm);
     const searchType = useSelector(state => state.searchType);
-    // const [allClaims, setAllClaims] = useState(getAllClaims);
-    console.log(searchTerm);
 
     const [allClaims, setAllClaims] = useState([]);
 
@@ -34,7 +25,7 @@ const ClaimSearch = (props) => {
                         setAllClaims(response.data);
                     }
                     else {
-                        console.log("Something went wrong with the response returning Claims.", response.status)
+                        console.log("Oops Something went wrong with the response returning Claims.", response.status)
                     }
                 }
             )
@@ -45,36 +36,7 @@ const ClaimSearch = (props) => {
             );
     }, [typeOfStatus]);
 
-    // const handleChange = (event) => {
-    //     const value = event.target.value;
-    //     setTouched(true);
-    //     setSearchTerm(value);
-    //     setValid (value.trim().length > 0);
-    // }
-
-
-
-    
-        
-        /* if(document.getElementById('optionClaimID').checked) {
-
-            //ClaimID radio button is checked
-          }else if(document.getElementById('optionPolicyNumber').checked) {
-            //Policy Number radio button is checked
-          }else if(document.getElementById('optionSurname').checked)
- */
-    //       const displayClaims = searchedClaims.map((claim, index) => ((claim.status === selectedStatus || selectedStatus === "All")
-    //       && (claim.insurance_type === selectedInsurnceType || selectedInsurnceType === "All")) &&
-    //       <ClaimRow key={index} claim={claim} />
-    //   );
-    // people.filter(person => person.age < 60).map(filteredPerson => (
-        // const displayClaims = "";
-        // id: 101, number: "1234567890", policy_number: "156725657625", status: 1, insurance_type: "Property", created_date: "2017-01-31",
-        // claim_started_date: "2017-01-31", customer_first_name: "John", customer_surname: "Doe", estimated_claim_value: "100", claim_reason: "It broke",
-        // incident_description: "Something went wrong", affected_address: "1 Main Street, Main Town", related_claim_date: "2017-01-31", any_further_details: "None",
-        // amount_paid: "100", make: "Skoda", model: "Fabia", modelYear: "1990", animal_type: "horse", animal_breed: "big"
-        
-        
+            
         let displayClaims;
         if(searchType==="claimNumber"){
             console.log(allClaims);
@@ -103,25 +65,7 @@ const ClaimSearch = (props) => {
             setSearchTerm(value);
             setValid (value.trim().length > 0);
 
-        }
-        
-   
-
-    
-
-    const submitSearch = (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            dispatch({ type: "set-search-term", value: e.target.value });
-            console.log(e.target.value);
-            navigate("searchType=" + searchType + "&searchTerm=" + searchTerm);
-        }
-    }
-
-    const searchTextChange = (e) => {
-        dispatch({ type: "set-search-term", value: e.target.value });
-        navigate("searchType=" + searchType + "&searchTerm=" + e.target.value);
-    }
+        }      
 
     const searchTypeChange = (e) => {
         dispatch({ type: "set-search-type", value: e.target.value });
@@ -135,7 +79,6 @@ const ClaimSearch = (props) => {
                 <form className="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
                     <div className="row text-white">
                         <div className="col-sm-4 mb-1">
-                            {/* <input type="search" className="form-control" placeholder="Search Claims..." ={submitSearch} onChange={searchTextChange} value={searchTerm} />  */}
                               <input onChange={handleChange} value={searchTerm}  type="text" /> 
                         </div>
                         <div className="col-sm-8" onChange={searchTypeChange}>
