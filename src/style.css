@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "AllstateObjektiv";
+  src: local("AllstateObjektiv"), url(../src/font/AllstateObjektiv_Rg.ttf);
+}
+
+body{
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: "AllstateObjektiv";
+  
+}
+
+.menu-link{
+  cursor: pointer;
+}
+
+.selected-link, .selected-link:hover{
+ color: #45bce5;
+ fill: #45bce5;
+}
+
+.background-allstate-blue{
+  background-color: #000000 !important;
+}
+
+.background-allstate-blue-faded{
+  background-color:white; 
+  color:#0033a071;
+}
+
+.text-allstate-blue, text-allstate-blue:link, text-allstate-blue:hover {
+  color: #0033a0;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.display-none{
+  display:none;
+}
+
+.btn-allstate-blue{
+  background-color: #09cf3a;
+  color: white;
+}
+
+.btn-allstate-blue:hover{
+  background-color: #45bce5;
+  color: white;
+}
+
+.claim-table-link {
+
+  cursor: pointer;
+}
+
+.claim-table-link:hover{
+  color: gray;
+  fill: gray;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.tab-archived {
+  background-color: rgba(231, 231, 231, 0.788);
+}
+
+.open-archive-radio {
+  padding-left: 5rem;
+}
