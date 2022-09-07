@@ -8,7 +8,8 @@ const NotesPanel = (props) => {
 
     const claimStatus = props.claimStatus != null ? props.claimStatus : "";
     const claimID = currentClaim != null ? currentClaim.id : "";
-
+    
+    //Empty Note
     const emptyNote = {
         id: 0, claimId: claimID, detail: "", date: ""
     };

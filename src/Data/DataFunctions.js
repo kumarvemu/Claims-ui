@@ -117,9 +117,7 @@ const headers = { 'Accept': 'application/json', 'Content-Type': 'application/jso
 //     return claims;
 // }
 
-// export const getAllClaims = (username, password) => {
-export const getAllClaims = () => {
-    //const headers = {...basicAuthHeader(username, password), 'Accept': 'application/json' };
+export const getAllClaims = () => { 
     const headers = {'Accept': 'application/json' };
 
     const claimPromise = axios({
@@ -132,7 +130,6 @@ export const getAllClaims = () => {
 }
 
 export const getClaimsByOpenStatus = (status) => {
-    //const headers = {...basicAuthHeader(username, password), 'Accept': 'application/json' };
     const headers = {'Accept': 'application/json' };
 
     const claimPromise = axios({
@@ -145,7 +142,6 @@ export const getClaimsByOpenStatus = (status) => {
 }
 
 export const getClaimById = (id) => {
-    //const headers = {...basicAuthHeader(username, password), 'Accept': 'application/json' };
     const headers = {'Accept': 'application/json' };
 
     const claimPromise = axios({
@@ -169,14 +165,6 @@ debugger
     return claimPromise;
 }
 
-// export const addNewPayment = (payment) => {
-//     const paymentsPromise = axios({url: "http://localhost:8080/api/claim",
-//          method: "POST", headers: headers, data : payment }
-//     );
-
-//     return paymentsPromise;
-// }
-
 
 export const updateClaim = (id, data) => {
     
@@ -188,10 +176,6 @@ export const updateClaim = (id, data) => {
 
     return claimPromise;
 }
-
-// export const getInsuranceTypes = () => {
-//     return insuranceTypes;
-// }
 
 export const getInsuranceTypes = () => {
     const headers = {'Accept': 'application/json' };
@@ -226,9 +210,7 @@ export const getAllClaimStatuses = () => {
 //     return tasks;
 // }
 
-// export const getAllOpenTasks = (username, password) => {
     export const getAllOpenTasks = () => {
-        //const headers = {...basicAuthHeader(username, password), 'Accept': 'application/json' };
         const headers = {'Accept': 'application/json' };
     
         const taskPromise = axios({
@@ -277,7 +259,6 @@ export const getAllTaskStatuses = () => {
 
     return taskStatusPromise;
 }
-
 
 
 export const addNoteToClaim = (note) => {

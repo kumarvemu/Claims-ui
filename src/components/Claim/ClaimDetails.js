@@ -5,6 +5,7 @@ import { getClaimById, registerNewClaim, updateClaim } from "../../Data/DataFunc
 import { useLocation, useNavigate, useParams } from "react-router";
 import ClaimNotFound from "../../ClaimNotFound";
 import { useDispatch, useSelector } from "react-redux";
+import { isFulfilled } from "@reduxjs/toolkit";
 
 const ClaimDetails = () => {
 
@@ -79,8 +80,12 @@ const ClaimDetails = () => {
 
     const pageAction = location.pathname === "/new" ? "Add" : "Update";
 
-    const claimStatus = claimInStore == null ? "open" : claimfound ? !claimInStore.status.open ? "archived" : "open" : "open";
-
+    //const claimStatus = claimInStore == null ? "open" : claimfound ? !claimInStore.status.open ? "archived" : "open" : "open";
+    let claimStatus = "open";
+    if( claimfound &&  !claimInStore.status.open ){
+        claimStatus = "archived"
+    }
+    
     //TODO: Check Roles and disable if don't have access!
     const fieldDisabled = claimStatus === "archived";
 
