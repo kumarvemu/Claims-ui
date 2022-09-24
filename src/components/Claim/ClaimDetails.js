@@ -89,7 +89,7 @@ const ClaimDetails = () => {
     //TODO: Check Roles and disable if don't have access!
     const fieldDisabled = claimStatus === "archived";
 
-    const constPageTitle = location.pathname === "/new" ? "New Claim" : "Claim Details";
+    const constPageTitle = location.pathname === "/new" ? "Register  Claim" : "Claim Details";
 
     const handleChange = (e) => {
         let dataToChange = { field: e.target.id, value: e.target.value };
@@ -263,14 +263,14 @@ const ClaimDetails = () => {
     const insuranceTypeOptions = insuranceTypes.map(it =>
         <div key={it.id} className="form-check form-check-inline">
             <input className="form-check-input" type="radio" name="inputInsuranceType" data-value={it.id} id={`option${it.detail}`} defaultValue={it.detail} defaultChecked={insuranceType.detail === it.detail} required disabled={fieldDisabled} />
-            <label className="form-check-label" htmlFor={`option${it.detail}`}><svg className="bi d-block mx-auto mb-1" width="24" height="24"><use xlinkHref={`#${it.detail}`} /></svg> {it.detail}</label>
+            <label className="form-check-label" htmlFor={`option${it.detail}`}> {it.detail}</label>
         </div>
     );
 
     return (
         <Fragment>
             <div className="container my-1" >
-                <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center rounded-3 border shadow-sm background-allstate-blue">
+                <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center rounded-3 border shadow-sm background-allstate-green">
                     <div className="col-lg-12 p-1 p-lg-2 pt-lg-1 text-white" >
                         <h5>{constPageTitle}</h5>
                     </div>
@@ -285,15 +285,15 @@ const ClaimDetails = () => {
                         <form onSubmit={submitForm} className="row">
                             <div className={`row gx-3 gy-2 ${location.pathname === "/new" ? "d-none" : ""}`}>
                                 <div className="col-md-4">
-                                    <label htmlFor="inputClaimNumber" className="form-label">Claim Number</label>
+                                    <label htmlFor="inputClaimNumber" className="form-label"><b>Claim Number</b></label>
                                     <input type="text" className="form-control" id="inputClaimNumber" name="inputClaimNumber" value={id} readOnly />
                                 </div>
                                 <div className="col-md-4">
-                                    <label htmlFor="inputClaimCreatedDate" className="form-label">Claim Created</label>
+                                    <label htmlFor="inputClaimCreatedDate" className="form-label"><b>Claim Created</b></label>
                                     <input type="text" className="form-control" id="inputClaimCreatedDate" name="inputClaimCreatedDate" value={createdDate} readOnly />
                                 </div>
                                 <div className="col-md-4">
-                                    <label htmlFor="selectClaimStatus" className="form-label">Claim Status </label>
+                                    <label htmlFor="selectClaimStatus" className="form-label"><b>Claim Status</b> </label>
                                     <select className="form-select" id="status" name="status" onChange={handleChange} value={status.id} disabled={fieldDisabled}>
                                         <option value="" disabled >-- Select --</option>
                                         {claimStatusOptions}
@@ -302,68 +302,71 @@ const ClaimDetails = () => {
                             </div>
                             <div className="row gx-3 gy-2">
                                 <div className="col-md-6" onChange={insuranceTypeChange}>
-                                    <label htmlFor="inputInsuranceType" className="form-label">Insurance Type</label> <br />
+                                    <label htmlFor="inputInsuranceType" className="form-label"><b>Insurance Type</b></label> <br />
                                     {insuranceTypeOptions}
                                 </div>
                             </div>
                             <div className="row gx-3 gy-2">
-                                <div className="col-md-6">
-                                    <label htmlFor="policyNumber" className="form-label">Policy Number</label>
+                                <div className="col-md-3">
+                                    <label htmlFor="policyNumber" className="form-label"><b>Policy Number</b></label>
                                     <input type="number" className="form-control" onChange={handleChange} id="policyNumber" name="policyNumber" maxLength="8" max="9999999999" placeholder="i.e. 10 digit number" value={policyNumber} required disabled={fieldDisabled} />
                                 </div>
-                            </div>
-                            <div className="row gx-3 gy-2">
-                                <div className="col-md-6">
-                                    <label htmlFor="customerFirstName" className="form-label">Customer First Name</label>
+                            {/* </div> */}
+                            {/* <div className="row gx-3 gy-2"> */}
+                                <div className="col-md-3">
+                                    <label htmlFor="customerFirstName" className="form-label"><b>First Name</b></label>
                                     <input type="text" className="form-control" onChange={handleChange} id="customerFirstName" name="customerFirstName" placeholder="First Name" value={customerFirstName} required disabled={fieldDisabled} />
                                 </div>
-                                <div className="col-md-6">
-                                    <label htmlFor="customerSurname" className="form-label">Customer Surname</label>
+                                <div className="col-md-3">
+                                    <label htmlFor="customerSurname" className="form-label"><b>Surname</b></label>
                                     <input type="text" className="form-control" onChange={handleChange} id="customerSurname" name="customerSurname" placeholder="Surname" value={customerSurname} required disabled={fieldDisabled} />
                                 </div>
                             </div>
                             <div className="row gx-3 gy-2">
-                                <div className="col-md-4">
-                                    <label htmlFor="claimStartedDate" className="form-label">Claim Start Date</label>
+                                <div className="col-md-3">
+                                    <label htmlFor="claimStartedDate" className="form-label"><b>Claim Start Date</b></label>
                                     <input type="date" className="form-control" onChange={handleChange} id="claimStartedDate" name="claimStartedDate" value={claimStartedDate} required disabled={fieldDisabled} />
                                 </div>
-                                <div className="col-md-4">
-                                    <label htmlFor="estimatedClaimValue" className="form-label">Estimated Claim Value</label>
+                                <div className="col-md-3">
+                                    <label htmlFor="estimatedClaimValue" className="form-label"><b>Estimated Claim Value</b></label>
                                     <input type="number" className="form-control" onChange={handleChange} id="estimatedClaimValue" name="estimatedClaimValue" max="499.99" placeholder="$0.00" value={estimatedClaimValue} required disabled={fieldDisabled} />
                                 </div>
-                            </div>
-                            <div className="row gx-3 gy-2">
-                                <div className="col-md-12">
-                                    <label htmlFor="claimReason" className="form-label">Claim Reason</label>
+                            {/* </div>
+                            <div className="row gx-3 gy-2"> */}
+                                <div className="col-md-3">
+                                    <label htmlFor="claimReason" className="form-label"><b>Claim Reason</b></label>
                                     <input type="text" className="form-control" onChange={handleChange} id="claimReason" name="claimReason" placeholder="Reason for the claim" value={claimReason} required disabled={fieldDisabled} />
                                 </div>
                             </div>
                             <div className="row gx-3 gy-2">
-                                <div className="col-md-12">
-                                    <label htmlFor="incidentDescription" className="form-label">Incident Description</label>
+                                <div className="col-md-6">
+                                    <label htmlFor="incidentDescription" className="form-label"><b>Incident Description</b></label>
                                     <textarea className="form-control" onChange={handleChange} id="incidentDescription" name="incidentDescription" rows="4" placeholder="Description of the incident leading to the claim" value={incidentDescription} required disabled={fieldDisabled}></textarea>
                                 </div>
                             </div>
                             {insuranceType.detail === "Property" &&
-                                <div id="divPropertyFields" className="row gx-3 gy-2">
-                                    <div className="col-md-12">
-                                        <label htmlFor="affectedAddress" className="form-label">Affeced Address</label>
+                            
+                                <div id="divPropertyFields" className="row gx-3 gy-2">    
+                                    <div className="col-md-6">
+                                        <label htmlFor="affectedAddress" className="form-label"><b>Affected Address</b></label>
                                         <textarea className="form-control" onChange={handleChange} id="affectedAddress" name="affectedAddress" rows="4" placeholder="Address of property affected" value={affectedAddress || ""} required disabled={fieldDisabled}></textarea>
                                     </div>
                                 </div>
+                               
+                               
                             }
                             {insuranceType.detail === "Motor" &&
                                 <div id="divMotorFields" className="row gx-3 gy-2">
                                     <div className="col-md-4">
-                                        <label htmlFor="make" className="form-label">Make</label>
+                                        <label htmlFor="make" className="form-label"><b>Make</b></label>
                                         <input type="text" className="form-control" onChange={handleChange} id="make" name="make" placeholder="Vehicle Make" value={make || ""} disabled={fieldDisabled} />
                                     </div>
                                     <div className="col-md-4">
-                                        <label htmlFor="model" className="form-label">Model</label>
+                                        <label htmlFor="model" className="form-label"><b>Model</b></label>
                                         <input type="text" className="form-control" onChange={handleChange} id="model" name="model" placeholder="Vehicle Model" value={model || ""} disabled={fieldDisabled} />
                                     </div>
                                     <div className="col-md-4">
-                                        <label htmlFor="modelYear" className="form-label">Year</label>
+                                        <label htmlFor="modelYear" className="form-label"><b>Year</b></label>
                                         <input type="number" className="form-control" onChange={handleChange} id="modelYear" name="modelYear" min="1900" max="2099" value={modelYear || ""} disabled={fieldDisabled} />
                                     </div>
                                 </div>
@@ -371,30 +374,30 @@ const ClaimDetails = () => {
                             {insuranceType.detail === "Pet" &&
                                 <div id="divPetFields" className="row gx-3 gy-2">
                                     <div className="col-md-6">
-                                        <label htmlFor="animalType" className="form-label">Animal Type</label>
+                                        <label htmlFor="animalType" className="form-label"><b>Animal Type</b></label>
                                         <input type="text" className="form-control" onChange={handleChange} id="animalType" name="animalType" placeholder="Type of Animal" value={animalType || ""} disabled={fieldDisabled} />
                                     </div>
                                     <div className="col-md-6">
-                                        <label htmlFor="animalBreed" className="form-label">Animal Breed</label>
+                                        <label htmlFor="animalBreed" className="form-label"><b>Animal Breed</b></label>
                                         <input type="text" className="form-control" onChange={handleChange} id="animalBreed" name="animalBreed" placeholder="Breed of Animal" value={animalBreed || ""} disabled={fieldDisabled} />
                                     </div>
                                 </div>
                             }
                             <div id="divOptionalFields" className="row gx-3 gy-2">
-                                <div className="col-md-6">
-                                    <label htmlFor="relatedIncidentDate" className="form-label">Related Claim Incident/Event Date <span className="text-muted">(Optional)</span></label>
+                                <div className="col-md-3">
+                                    <label htmlFor="relatedIncidentDate" className="form-label"><b>Related Claim Incident Date</b> <span className="text-muted">(Optional)</span></label>
                                     <input type="date" className="form-control" onChange={handleChange} id="relatedIncidentDate" name="relatedIncidentDate" disabled={fieldDisabled} value={relatedIncidentDate || ""} />
                                 </div>
-                                <div className="col-md-12">
-                                    <label htmlFor="anyFurtherDetails" className="form-label">Any Further Details <span className="text-muted">(Optional)</span></label>
-                                    <textarea className="form-control" onChange={handleChange} id="anyFurtherDetails" name="anyFurtherDetails" rows="4" placeholder="Any additional details" value={anyFurtherDetails || ""} disabled={fieldDisabled}></textarea>
+                                <div className="col-md-5">
+                                    <label htmlFor="anyFurtherDetails" className="form-label"><b>Any Further Details</b> <span className="text-muted">(Optional)</span></label>
+                                    <textarea className="form-control" onChange={handleChange} id="anyFurtherDetails" name="anyFurtherDetails" rows="2" placeholder="Any additional details" value={anyFurtherDetails || ""} disabled={fieldDisabled}></textarea>
                                 </div>
                             </div>
                             {location.pathname !== "/new" &&
                                 <Fragment>
                                     <div className="row gx-3 gy-2">
-                                        <div className="col-md-4">
-                                            <label htmlFor="amountPaid" className="form-label">Amount Paid <span className="text-muted">(Optional)</span></label>
+                                        <div className="col-md-3">
+                                            <label htmlFor="amountPaid" className="form-label"><b>Amount Paid</b> <span className="text-muted">(Optional)</span></label>
                                             <input type="number" className="form-control" onChange={handleChange} id="amountPaid" name="amountPaid" placeholder="$0.00" max="499.99" disabled={fieldDisabled} value={amountPaid || ""} /> {/* {...requiredAmount} */}
                                         </div>
                                     </div>

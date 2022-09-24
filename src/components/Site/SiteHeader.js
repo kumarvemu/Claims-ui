@@ -83,7 +83,7 @@ const SiteHeader = (props) => {
         <Fragment>
             <SiteIcons />
 
-            <div className="px-3 py-2 text-dark background-allstate-blue">
+            <div className="px-3 py-2 text-dark background-allstate-green">
                 <div className="container">
                     <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center justify-content-center justify-content-lg-start">
                           <div className="align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none font-weight-bold"> 

@@ -18,11 +18,11 @@ body{
  fill: #45bce5;
 }
 
-.background-allstate-blue{
-  background-color: #000000 !important;
+.background-allstate-green{
+  background-color: #064911 !important;
 }
 
-.background-allstate-blue-faded{
+.background-allstate-green-faded{
   background-color:white; 
   color:#0033a071;
 }
@@ -48,6 +48,35 @@ body{
 .btn-allstate-blue:hover{
   background-color: #45bce5;
   color: white;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+.claim-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.claim-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.claim-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.claim-table tbody th:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.claim-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
 }
 
 .claim-table-link {

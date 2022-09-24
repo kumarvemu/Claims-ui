@@ -186,9 +186,9 @@ const ViewClaims = (props) => {
                         <thead>
                             <tr className="table-light">
                                 <th scope="col"></th>
-                                <th scope="col">Claim #</th>
+                                <th scope="col">Claim ID</th>
                                 <th scope="col">Start Date</th>
-                                <th scope="col">Policy #</th>
+                                <th scope="col">Policy No</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Status</th>

@@ -63,7 +63,7 @@ const NotesPanel = (props) => {
 
     return (<Fragment>
         <div className="container mb-0 mt-3 text-left" >
-            <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center rounded-3 border shadow-sm background-allstate-blue">
+            <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center rounded-3 border shadow-sm background-allstate-green">
                 <div className="col-lg-12 p-1 p-lg-2 pt-lg-1 text-white" >
                     <h5>Notes</h5>
                 </div>

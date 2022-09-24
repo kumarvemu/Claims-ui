@@ -74,7 +74,7 @@ const ClaimSearch = (props) => {
 
     return (
         <Fragment>
-        <div className="px-3 py-2 border-bottom mb-2 background-allstate-blue">
+        <div className="px-3 py-2 border-bottom mb-2 background-allstate-green">
             <div className="container d-flex flex-wrap justify-content-center">
                 <form className="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
                     <div className="row text-white">

@@ -28,15 +28,16 @@ const ClaimRow = (props) => {
 
   return (
     <Fragment>
-      <tr className={`table-${rowColourClass}`}>
+      {/* <tr className={`table-${rowColourClass}`}> */}
+      <tr className=''>
         <td className="claim-table-link"  onClick={editClicked}><svg width="24" height="24" alt="View Claim"><use xlinkHref="#view-claim" /></svg></td>
         <th>{claim.id}</th>
         <td>{claim.claimStartedDate}</td>
         <td>{claim.policyNumber}</td>
-        <td title={claim.insuranceType.detail}><svg width="24" height="24" alt={claim.insuranceType.detail}>{claim.insuranceType.detail}<use xlinkHref={`#${claim.insuranceType.detail}`} /></svg></td>
+        <td title={claim.insuranceType.detail}>{claim.insuranceType.detail}</td>
         <td>{claim.customerFirstName} {claim.customerSurname}</td>
         <td>{claim.status.detail}</td>
-        <td className={`${openClaimTasks.length > 0 ? "text-danger" : ""}`}>{claimTasks.length}</td>
+        <td className=''>{claimTasks.length}</td>
       </tr>
     </Fragment>
   );
