@@ -120,19 +120,19 @@ const TaskPanel = (props) => {
 
   return (<Fragment>
     <div className="container mb-0 mt-3 text-left" >
-      <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center rounded-3 border shadow-sm background-allstate-green">
+      <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center rounded-3 border shadow-sm ">
         <div className="col-lg-12 p-1 p-lg-2 pt-lg-1 text-white" >
-          <h5> {claimStatus === "showAll" && "Open "}Tasks</h5>
+          <h5> {claimStatus === "showAll" && "Open "}<b>Tasks</b></h5>
         </div>
       </div>
     </div>
     <div className="container my-1 text-left" >
       <div className="row p-1 pb-0 pe-lg-0 pt-lg-3 align-items-center rounded-3 border shadow-sm">
-        <table className="table">
+        <table className="table1">
           <thead>
             <tr className="table-light">
               {claimStatus === "showAll" && <th className="col-2" scope="col">Claim No.</th>}
-              <th className="col-10" scope="col">Task</th>
+              <th className="col-10" scope="col"><b>Task</b></th>
               {claimStatus !== "showAll" && <th className="col-2" scope="col">Status</th>}
             </tr>
           </thead>
@@ -145,7 +145,7 @@ const TaskPanel = (props) => {
         <form onSubmit={submitForm} className={`row ${claimStatus === "archived" || claimStatus === "showAll" ? "d-none" : ""}`}>
           <div className="row gx-3 gy-2">
             <div className="col-md-9">
-              <label htmlFor="inputAddTask" className="form-label">Task</label>
+              <label htmlFor="inputAddTask" className="form-label"><b>Task</b></label>
               <input type="text" className="form-control mb-3" id="detail" name="detail" onChange={handleChange} value={detail} required />
             </div>
             <div className="col-md-3">

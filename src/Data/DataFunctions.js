@@ -155,7 +155,6 @@ export const getClaimById = (id) => {
 
 export const registerNewClaim = (newClaim) => {
     //const claimToAdd = newClaim.map(({ id, amountPaid, createdDate, status, ...rest }) => rest)
-debugger
     const claimPromise = axios({
         url: "http://localhost:8080/api/claim",
         method: "POST", headers: headers, data: newClaim

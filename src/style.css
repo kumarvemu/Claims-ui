@@ -41,8 +41,17 @@ body{
 }
 
 .btn-allstate-blue{
-  background-color: #09cf3a;
+  background-color: #240675; 
+  border: none;
   color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .btn-allstate-blue:hover{
@@ -50,9 +59,32 @@ body{
   color: white;
 }
 
-table, th, td {
+.table{
   border: 1px solid;
+  width:100%;
 }
+
+.table1 {
+    border: 1px solid;
+    width:72%; 
+}
+.table1 tbody th {
+  color: #000;
+  vertical-align:middle;
+  text-align: center;
+  border:1px solid #000 ;
+}
+
+.table-light.tr {
+  color: #000099;
+  vertical-align:middle;
+  text-align: center;
+  border:1px solid #000 ;
+}
+
+.table1 tbody tr {
+  border-top: 1px solid #d6eeee;}
+
 
 .claim-table {
   border-collapse: collapse;
@@ -65,6 +97,12 @@ table, th, td {
 
 .claim-table tbody tr {
   border-bottom: 1px solid #dddddd;
+}
+
+.table-light {
+  --bs-table-color: #000;
+  --bs-table-bg: #98c5e9;
+  --bs-table-color: #0f1011;
 }
 
 .claim-table tbody tr:nth-of-type(even) {
@@ -99,4 +137,16 @@ table, th, td {
 
 .open-archive-radio {
   padding-left: 5rem;
+}
+h5 {
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;  
+  max-height: fit-content;
+  justify-content:center;
+  margin:auto;
+   padding: 3px;
+  font-size: 22px;
+  background-color: #240675;
+  color: #fff;
 }

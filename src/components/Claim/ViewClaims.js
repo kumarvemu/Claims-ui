@@ -183,7 +183,7 @@ const ViewClaims = (props) => {
 
                    
                     <table className="table claim-table">
-                        <thead>
+                        <thead className = "thead-dark">
                             <tr className="table-light">
                                 <th scope="col"></th>
                                 <th scope="col">Claim ID</th>

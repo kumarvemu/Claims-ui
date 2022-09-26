@@ -89,7 +89,7 @@ const ClaimDetails = () => {
     //TODO: Check Roles and disable if don't have access!
     const fieldDisabled = claimStatus === "archived";
 
-    const constPageTitle = location.pathname === "/new" ? "Register  Claim" : "Claim Details";
+    const constPageTitle = location.pathname === "/new" ? "Register  Claim" : "View / Update Claim Details";
 
     const handleChange = (e) => {
         let dataToChange = { field: e.target.id, value: e.target.value };
@@ -270,12 +270,12 @@ const ClaimDetails = () => {
     return (
         <Fragment>
             <div className="container my-1" >
-                <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center rounded-3 border shadow-sm background-allstate-green">
-                    <div className="col-lg-12 p-1 p-lg-2 pt-lg-1 text-white" >
+                {/* <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center rounded-3 border shadow-sm"> */}
+                    {/* <div className="col-lg-3 p-1 p-lg-2 pt-lg-1 text-white" > */}
                         <h5>{constPageTitle}</h5>
                     </div>
-                </div>
-            </div>
+                {/* </div> */}
+            
             {(!claimfound && location.pathname !== "/new") &&
                 <ClaimNotFound />
             }

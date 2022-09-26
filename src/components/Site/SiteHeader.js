@@ -1,6 +1,6 @@
 import { Fragment,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import allstateLogo from '../../resources/AllstateLogo.svg';
+// import allstateLogo from '../../resources/AllstateLogo.svg';
 import SiteIcons from '../../resources/SiteIcons';
 import { getAllClaimStatuses, getAllTaskStatuses, getInsuranceTypes } from '../../Data/DataFunctions';
 
@@ -83,11 +83,11 @@ const SiteHeader = (props) => {
         <Fragment>
             <SiteIcons />
 
-            <div className="px-3 py-2 text-dark background-allstate-green">
+            <div className="px-5 py-2 text-dark background-allstate-green">
                 <div className="container">
                     <div className="row p-1 pb-0 pe-lg-0 pt-lg-2 align-items-center justify-content-center justify-content-lg-start">
                           <div className="align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none font-weight-bold"> 
-                            <img src={allstateLogo} alt="Allstate" /> &nbsp; <b>Quick Claims Application</b> 
+                            {/* <img src={allstateLogo} alt="Allstate" />*/} &nbsp; <b>Demo - Quick Claims Application</b>  
                         </div>
                         </div>
                 </div>
