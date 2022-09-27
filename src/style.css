@@ -39,6 +39,62 @@ body{
 .display-none{
   display:none;
 }
+.claims-list-btn {
+	display: inline-block;
+	font-weight: 400;
+	color: #212529;
+	text-align: center;
+	border: 1px solid transparent;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	color: #fff;
+	background-color: #007bff;
+}
+
+
+.claims-list-btn:hover{
+  	background-color: #0069d9;
+}
+
+.home-Claim-btn {
+	display:inline-block;
+	font-weight: 400;
+	color: #0a0b0c;
+	text-align: center;
+	border: 1px solid transparent;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	color: rgb(17, 6, 6);
+	background-color: #d5e678;
+}
+
+
+.home-Claim-btn:hover{
+  	background-color: #0069d9;
+}
+.home-Claim-btn1{
+  border:5.4px solid #3C3B94;
+  border-radius:16.2px;
+  padding:27px 83px 27px 83px;
+  margin:0;
+  background-color:#3C3B94;
+  color:#7DFFDA;
+  font-weight:500;
+  opacity:1;
+  transition:1s;
+}
+.home-Claim-btn1:hover {
+  cursor:pointer;
+  background-color:#222153;
+  opacity:1;
+  transition:1s;
+}
+
+
 
 .btn-allstate-blue{
   background-color: #240675; 
@@ -53,7 +109,7 @@ body{
   cursor: pointer;
   border-radius: 50%;
 }
-
+ 
 .btn-allstate-blue:hover{
   background-color: #45bce5;
   color: white;

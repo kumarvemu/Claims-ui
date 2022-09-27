@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { isFulfilled } from "@reduxjs/toolkit";
 import swal from "sweetalert";
 
+
 const ClaimDetails = () => {
 
     const location = useLocation();
@@ -94,7 +95,7 @@ const ClaimDetails = () => {
     const fieldDisabled = claimStatus === "archived";
 
     const constPageTitle = location.pathname === "/new" ? "Register  Claim" : "View / Update Claim Details";
-
+        
     const handleChange = (e) => {
         let dataToChange = { field: e.target.id, value: e.target.value };
 
@@ -112,10 +113,14 @@ const ClaimDetails = () => {
         dispatch(changeInsuranceTypeId);
     }
 
+    const ListClicked = (e) => {
+        navigate("/list" );
+  }
+
     const submitForm = (e) => {
         e.preventDefault();
         setSaving(true);
-        setMessage("Please wait - saving");
+        setMessage("Please wait - saving");      
 
         //Add Claim
         if (pageAction === "Add") {
@@ -300,6 +305,11 @@ const ClaimDetails = () => {
                     <div className="row p-1 pb-0 pe-lg-0 pt-lg-3 align-items-center rounded-3 border shadow-sm">
                         <form onSubmit={submitForm} className="row">
                             <div className={`row gx-3 gy-2 ${location.pathname === "/new" ? "d-none" : ""}`}>
+                                <div className="col-md-12">
+                                {/* <button type="subbmit" className="btn bbutton-82-pushable" onClick={homeClicked}><p><b><a href="list">Claims List</a></b></p></button> */}
+                                <button type="subbmit" className="btn claims-list-btn" onClick={ListClicked}>Claims List</button>
+
+                                </div>
                                 <div className="col-md-4">
                                     <label htmlFor="inputClaimNumber" className="form-label"><b>Claim Number</b></label>
                                     <input type="text" className="form-control" id="inputClaimNumber" name="inputClaimNumber" value={id} readOnly />

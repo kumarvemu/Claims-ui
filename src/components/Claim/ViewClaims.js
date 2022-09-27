@@ -145,7 +145,7 @@ const ViewClaims = (props) => {
         setAllClaims(getClaimsByOpenStatus(!typeOfStatus));
         setSelectedStatus("All");
     } */
-
+       
     return (
         <Fragment>
             <div className="container my-1" >

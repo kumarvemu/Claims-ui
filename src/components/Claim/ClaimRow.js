@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router"; 
 
 
 const ClaimRow = (props) => {
