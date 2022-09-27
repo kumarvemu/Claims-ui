@@ -31,7 +31,7 @@ const ClaimRow = (props) => {
       {/* <tr className={`table-${rowColourClass}`}> */}
       <tr className=''>
         {/* <td className="claim-table-link"  onClick={editClicked}><svg width="24" height="24" alt="View Claim"><use xlinkHref="#view-claim" /></svg></td>*/}
-        <td className="claim-table-link"  onClick={editClicked}><p><b><a href="#view-claim">Edit</a></b></p></td>
+        <td className="claim-table-link"  onClick={editClicked}><p><b><a href="#">Edit</a></b></p></td>
         <th>{claim.id}</th>
         <td>{claim.claimStartedDate}</td>
         <td>{claim.policyNumber}</td>

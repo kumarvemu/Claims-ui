@@ -6,6 +6,7 @@ import { useLocation, useNavigate, useParams } from "react-router";
 import ClaimNotFound from "../../ClaimNotFound";
 import { useDispatch, useSelector } from "react-redux";
 import { isFulfilled } from "@reduxjs/toolkit";
+import swal from "sweetalert";
 
 const ClaimDetails = () => {
 
@@ -27,11 +28,14 @@ const ClaimDetails = () => {
 
     //Empty Claim values
     const emptyClaim = {
-        id: 0, policyNumber: "", status: { id: 0, detail: "", open: true }, insuranceType: insuranceTypes.filter(it => it.detail === "Property"), createdDate: "",
+        // id: 0, policyNumber: "", status: { id: 0, detail: "", open: true }, insuranceType: insuranceTypes.filter(it => it.detail === "Property"), createdDate: "",
+        id: 0, policyNumber: "", status: { id: 0, detail: "", open: true },insuranceType: { id: 1, detail: "Property"}, createdDate: "",
+
         claimStartedDate: "", customerFirstName: "", customerSurname: "", estimatedClaimValue: "", claimReason: "",
         incidentDescription: "", affectedAddress: "", relatedIncidentDate: "", anyFurtherDetails: "",
         amountPaid: "", make: "", model: "", modelYear: "", animalType: "", animalBreed: ""
     };
+    console.log("insurance Type")
 
     //Get current Claim in store
     const claimInStore = useSelector(state => state.currentClaim);
@@ -123,7 +127,13 @@ const ClaimDetails = () => {
             const response = registerNewClaim(newClaimDTO);
             response.then(result => {
                 if (result.status === 200) {
-                    setMessage("Claim added with id " + result.data.id);
+                         swal({ 
+                            title:"Thank You!",
+                            text: "Claim added with id " + result.data.id + " successfully.",
+                            icon:"success",
+                            button: "OK",
+                        })
+                    // setMessage("Claim added with id " + result.data.id);
                     storeDispatch({ type: "set-current-claim", value: result.data });
                     navigate("/view/" + result.data.id);
                     setTimeout(() => setMessage(""), 3000);
@@ -240,10 +250,16 @@ const ClaimDetails = () => {
                 const response = updateClaim(newClaim.id, data);
                 response.then(result => {
                     if (result.status === 200) {
-                        setMessage("Claim " + result.data.id + " updated.");
-                        storeDispatch({ type: "set-current-claim", value: result.data });
-                        setSaving(false);
-                        setTimeout(() => setMessage(""), 3000);
+                        swal({
+                            title:"Thank You!",
+                            text: "Claim " + result.data.id + " updated successfully.",
+                            icon:"success",
+                            button: "OK",
+                        })
+                        // setMessage("Claim " + result.data.id + " updated successfully.");
+                         storeDispatch({ type: "set-current-claim", value: result.data });
+                         setSaving(false);
+                         setTimeout(() => setMessage(""), 5000);
                     }
                     else {
                         setMessage("Error when updating Claim", result.statusText)
@@ -254,7 +270,7 @@ const ClaimDetails = () => {
                         setSaving(false);
                     });
 
-                setMessage("Claim " + newClaim.id + " updated successfully")
+                // setMessage("Claim " + newClaim.id + " updated successfully")
             }
         }
     }

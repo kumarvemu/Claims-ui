@@ -2,6 +2,7 @@ import { Fragment, useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewTask, getAllOpenTasks, updateTask } from "../../Data/DataFunctions";
 import TaskRow from "./TaskRow";
+import swal from "sweetalert";
 
 const TaskPanel = (props) => {
   const currentClaim = useSelector(state => state.currentClaim);
@@ -60,7 +61,14 @@ const TaskPanel = (props) => {
     const response = addNewTask(newTaskDTO);
     response.then(result => {
       if (result.status === 200) {
-        setMessage("Task added");
+        swal({
+          title:"Thank You!",
+          text: "Task added successfully.",
+          icon:"success",
+          button:"OK",
+      })
+
+        // setMessage("Task added");
         setClaimTasks(result.data);
         const updatedClaim = {...currentClaim, tasks: result.data};
         storeDispatch({ type: "set-current-claim", value: updatedClaim });

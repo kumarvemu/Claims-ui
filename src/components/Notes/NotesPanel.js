@@ -1,5 +1,6 @@
 import { Fragment, useReducer, useState } from "react";
 import { useSelector } from "react-redux";
+import swal from "sweetalert";
 import { addNoteToClaim } from "../../Data/DataFunctions";
 import NoteRow from "./NoteRow";
 
@@ -31,12 +32,19 @@ const NotesPanel = (props) => {
         e.preventDefault();
         setSaving(true);
         setMessage("Please wait - saving");
+        setTimeout(() => setMessage(""), 50);
  
         const response = addNoteToClaim(newNote);
             response.then(result => {
                 if (result.status === 200) {
+                    swal({
+                        title:"Thank You!",
+                        text: "Note added successfully.",
+                        icon:"success",
+                        button:"OK",
+                    })
                     setClaimNotes(result.data);
-                    setMessage("Note added.")
+                    // setMessage("Note added.")
                     setTimeout(() => setMessage(""), 3000);
                 }
                 else {
