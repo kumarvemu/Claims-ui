@@ -3,7 +3,6 @@ import { Fragment, useState, useEffect } from "react";
 // import { useSearchParams } from "react-router-dom";
 import { getAllClaimStatuses, getInsuranceTypes, getAllClaims } from "../../Data/DataFunctions";
 import ClaimRow from "./ClaimRow";
-
 const ViewClaims = (props) => {
     const [selectedClaimType, setSelectedClaimType] = useState("Open");
     // const [typeOfStatus, setTypeOfStatus] = useState(true);
